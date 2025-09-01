@@ -1,8 +1,9 @@
 "use client";
 
 import { useOrganization } from "@clerk/nextjs";
-import { AuthLayout } from "../layout/auth‐layout";
+import { AuthLayout } from "@/modules/auth/ui/layout/auth‐layout";
 import React from "react";
+import { OrgSelectionView } from "@/modules/auth/ui/views/org-selection-view";
 
 export const OrganizationGaurd = ({
   children,
@@ -13,9 +14,9 @@ export const OrganizationGaurd = ({
 
   if (!organization) {
     return (
-      <div>
-        <p>Create an organization!!!</p>
-      </div>
+      <AuthLayout>
+        <OrgSelectionView />
+      </AuthLayout>
     );
   }
   return <>{children}</>;
