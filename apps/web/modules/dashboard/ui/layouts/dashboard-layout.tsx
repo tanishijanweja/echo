@@ -10,9 +10,10 @@ export const DashboardLayout = async ({
   children: React.ReactNode;
 }) => {
   const cookieStore = await cookies();
-  const sidebarState = cookieStore.get("sidebar_state")?.value;
-  const defaultOpen =
-    sidebarState === undefined ? true : sidebarState === "true";
+  // const sidebarState = cookieStore.get("sidebar_state")?.value;
+  // const defaultOpen =
+  //   sidebarState === undefined ? true : sidebarState === "true";
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
   return (
     <AuthGaurd>
